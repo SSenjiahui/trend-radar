@@ -12,6 +12,7 @@ export default function GlobalHotlist({
   const platformBadgeMap = {
     weibo: { name: '微博', bg: 'bg-red-500/20 text-red-400 border-red-500/30' },
     zhihu: { name: '知乎', bg: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
+    tieba: { name: '贴吧', bg: 'bg-sky-500/20 text-sky-400 border-sky-500/30' },
     douyin: { name: '抖音', bg: 'bg-pink-500/20 text-pink-400 border-pink-500/30' },
     bilibili: { name: 'B站', bg: 'bg-sky-500/20 text-sky-400 border-sky-500/30' },
     baidu: { name: '百度', bg: 'bg-indigo-500/20 text-indigo-400 border-indigo-500/30' },
