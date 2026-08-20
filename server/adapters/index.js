@@ -4,6 +4,7 @@ import { fetchBaiduTrends } from './baidu.js';
 import { fetchBilibiliTrends } from './bilibili.js';
 import { fetchDouyinTrends } from './douyin.js';
 import { fetchToutiaoTrends } from './toutiao.js';
+import { fetchTiebaTrends } from './tieba.js';
 import { fetchJuejinTrends, fetchGithubTrends } from './tech.js';
 import { 
   fetchXTwitterTrends, 
@@ -32,6 +33,15 @@ export const PLATFORMS = {
     category: '深度问答',
     region: 'domestic',
     fetcher: fetchZhihuTrends
+  },
+  tieba: {
+    id: 'tieba',
+    name: '百度贴吧',
+    icon: 'tieba',
+    color: '#3385ff',
+    category: '社区讨论',
+    region: 'domestic',
+    fetcher: fetchTiebaTrends
   },
   douyin: {
     id: 'douyin',
