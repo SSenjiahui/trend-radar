@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  trend-radar:
+    build: .
+    container_name: trend-radar
+    restart: always
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - NODE_ENV=production
