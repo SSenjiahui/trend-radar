@@ -11,7 +11,8 @@ import {
   Share2,
   ThumbsUp,
   ArrowUp,
-  Languages
+  Languages,
+  MessageCircle
 } from 'lucide-react';
 
 export default function PlatformBoard({
@@ -56,14 +57,17 @@ export default function PlatformBoard({
 
   // Platform brand icon / color styling
   const platformColorMap = {
+    // 国内平台
     weibo: { bg: 'bg-red-500', text: 'text-red-400', border: 'border-red-500/20', flag: '🇨🇳' },
     zhihu: { bg: 'bg-blue-500', text: 'text-blue-400', border: 'border-blue-500/20', flag: '🇨🇳' },
+    tieba: { bg: 'bg-sky-600', text: 'text-sky-400', border: 'border-sky-500/20', flag: '🇨🇳' },
     douyin: { bg: 'bg-pink-500', text: 'text-pink-400', border: 'border-pink-500/20', flag: '🇨🇳' },
     bilibili: { bg: 'bg-sky-400', text: 'text-sky-400', border: 'border-sky-500/20', flag: '🇨🇳' },
     baidu: { bg: 'bg-indigo-500', text: 'text-indigo-400', border: 'border-indigo-500/20', flag: '🇨🇳' },
     toutiao: { bg: 'bg-rose-500', text: 'text-rose-400', border: 'border-rose-500/20', flag: '🇨🇳' },
     juejin: { bg: 'bg-blue-600', text: 'text-blue-400', border: 'border-blue-600/20', flag: '🇨🇳' },
 
+    // 国际平台
     x: { bg: 'bg-slate-100 text-slate-950', text: 'text-slate-200', border: 'border-slate-400/20', flag: '🌍' },
     reddit: { bg: 'bg-orange-600', text: 'text-orange-400', border: 'border-orange-500/20', flag: '🌍' },
     hackernews: { bg: 'bg-amber-600', text: 'text-amber-400', border: 'border-amber-500/20', flag: '🌍' },
@@ -73,7 +77,6 @@ export default function PlatformBoard({
   };
 
   const style = platformColorMap[platformKey] || { bg: 'bg-indigo-500', text: 'text-indigo-400', border: 'border-indigo-500/20', flag: '🌐' };
-  const isGlobal = info.region === 'global' || info.region === 'international';
 
   return (
     <div className="glass-panel rounded-2xl border border-slate-800 flex flex-col h-full shadow-lg transition-all duration-200 hover:border-slate-700/80">
@@ -231,6 +234,13 @@ export default function PlatformBoard({
                       <Flame className={`w-3 h-3 ${isTop3 ? 'text-amber-400' : 'text-slate-500'}`} />
                       {item.hotFormatted}
                     </span>
+
+                    {item.metrics?.discussCount > 0 && (
+                      <span className="flex items-center gap-0.5 text-[10px] text-slate-400">
+                        <MessageCircle className="w-2.5 h-2.5" />
+                        {item.metrics.discussCount} 讨论
+                      </span>
+                    )}
 
                     {item.metrics?.comments > 0 && (
                       <span className="flex items-center gap-0.5 text-[10px] text-slate-400">
